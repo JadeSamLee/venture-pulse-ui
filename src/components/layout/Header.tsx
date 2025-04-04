@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Bell, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -17,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 py-4 px-6">
+    <header className="w-full bg-background border-b border-border py-4 px-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-8">
           <button
@@ -29,17 +30,19 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           </button>
           
           <div className="flex items-center">
-            <h2 className="text-xl font-bold">TDP</h2>
+            <Link to="/" className="text-xl font-bold">TDP</Link>
           </div>
           
           <nav className="hidden md:flex items-center gap-6">
-            <a href="/" className="tdp-link">Home</a>
-            <a href="/projects" className="tdp-link">Projects</a>
-            <a href="/about" className="tdp-link">About</a>
+            <Link to="/" className="tdp-link">Home</Link>
+            <Link to="/projects" className="tdp-link">Projects</Link>
+            <Link to="/about" className="tdp-link">About</Link>
           </nav>
         </div>
         
         <div className="flex items-center gap-4">
+          <ThemeToggle />
+          
           <div className="relative">
             <button
               onClick={() => setNotificationsOpen(!notificationsOpen)}
@@ -49,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
               <Bell size={20} />
             </button>
             {notificationsOpen && (
-              <div className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-tdp z-10 p-4 border border-gray-100">
+              <div className="absolute right-0 mt-2 w-64 bg-card rounded-md shadow-tdp dark:shadow-tdp-dark z-10 p-4 border border-border">
                 <h3 className="font-bold mb-2">Notifications</h3>
                 <div className="space-y-2">
                   <p className="text-sm">New project funding completed</p>
@@ -77,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
             </Button>
           )}
           
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+          <button className="p-2 hover:bg-accent rounded-full transition-colors">
             <User size={20} />
           </button>
         </div>

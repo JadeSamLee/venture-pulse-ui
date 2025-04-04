@@ -107,6 +107,7 @@ export default {
 			},
 			boxShadow: {
 				'tdp': '0 8px 16px -2px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.06)',
+				'tdp-dark': '0 8px 16px -2px rgba(0, 0, 0, 0.25), 0 4px 8px -2px rgba(0, 0, 0, 0.15)',
 			}
 		}
 	},

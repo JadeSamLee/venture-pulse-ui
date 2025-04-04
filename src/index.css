@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 142 76% 36%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -41,6 +41,41 @@
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 6.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 6.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 222.2 84% 6.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 224.3 76.3% 48%;
   }
 
   * {
@@ -87,7 +122,7 @@
 
 @layer components {
   .tdp-card {
-    @apply bg-white rounded-lg shadow-tdp p-6 animate-fade-in;
+    @apply bg-card text-card-foreground rounded-lg shadow-tdp dark:shadow-tdp-dark p-6 animate-fade-in;
   }
 
   .tdp-button-primary {
@@ -95,11 +130,11 @@
   }
 
   .tdp-button-secondary {
-    @apply bg-white text-foreground border border-primary px-4 py-2 rounded-md hover:bg-primary hover:text-white transition-all;
+    @apply bg-card text-foreground border border-primary px-4 py-2 rounded-md hover:bg-primary hover:text-white transition-all;
   }
 
   .tdp-progress-bar {
-    @apply w-full h-2 bg-gray-100 rounded-full overflow-hidden;
+    @apply w-full h-2 bg-secondary rounded-full overflow-hidden;
   }
 
   .tdp-progress-fill {
@@ -112,5 +147,21 @@
 
   .tdp-link.active {
     @apply text-primary;
+  }
+
+  .hero-section {
+    @apply min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-green-400/10 to-green-500/10;
+  }
+
+  .feature-card {
+    @apply border border-border bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow;
+  }
+
+  .feature-icon {
+    @apply w-12 h-12 text-primary mb-4;
   }
 }
