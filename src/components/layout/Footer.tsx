@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-background border-t border-border py-4 px-6 mt-auto">
-      <div className="flex flex-col md:flex-row justify-between items-center">
+    <footer className="bg-background border-t border-border py-6 px-6 mt-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} Token Distribution Platform
         </p>
-        <div className="flex gap-4 mt-2 md:mt-0">
+        <div className="flex gap-6 mt-4 md:mt-0">
           <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
             Terms
           </Link>

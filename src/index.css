@@ -100,7 +100,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #22C55E;
+    @apply bg-gradient-to-r from-primary to-primary-light;
   }
 
   h2 {
@@ -116,17 +116,17 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #22C55E;
+    @apply bg-gradient-to-r from-primary to-primary-light;
   }
 }
 
 @layer components {
   .tdp-card {
-    @apply bg-card text-card-foreground rounded-lg shadow-tdp dark:shadow-tdp-dark p-6 animate-fade-in;
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-card hover:shadow-card-hover transition-shadow duration-300 p-6 animate-fade-in;
   }
 
   .tdp-button-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all;
+    @apply bg-primary-gradient text-white px-4 py-2 rounded-md hover:bg-primary-gradient-hover transition-all;
   }
 
   .tdp-button-secondary {
@@ -138,7 +138,7 @@
   }
 
   .tdp-progress-fill {
-    @apply h-full bg-primary;
+    @apply h-full bg-primary-gradient;
   }
 
   .tdp-link {
@@ -150,18 +150,88 @@
   }
 
   .hero-section {
-    @apply min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative;
+    @apply min-h-[70vh] flex flex-col justify-center items-center text-center px-4 py-16 relative;
   }
 
   .hero-overlay {
-    @apply absolute inset-0 bg-gradient-to-r from-green-400/10 to-green-500/10;
+    @apply absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-light/10;
   }
 
   .feature-card {
-    @apply border border-border bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow;
+    @apply border border-border bg-card p-8 rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300;
   }
 
   .feature-icon {
     @apply w-12 h-12 text-primary mb-4;
   }
+
+  .category-badge {
+    @apply px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium;
+  }
+
+  .project-card {
+    @apply tdp-card hover:scale-[1.02] transition-all duration-300;
+  }
+
+  .tab-button {
+    @apply px-4 py-2 font-medium rounded-md transition-all;
+  }
+
+  .tab-button.active {
+    @apply bg-primary text-white;
+  }
+  
+  .tab-button:not(.active) {
+    @apply hover:bg-primary/10;
+  }
+
+  .ethglobal-card {
+    @apply bg-white dark:bg-card border border-border dark:border-border rounded-lg overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+  
+  .ethglobal-badge {
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+/* ETHGlobal Style Landing Page */
+.landing-tab {
+  @apply font-bold cursor-pointer relative pb-1;
+}
+
+.landing-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  @apply bg-primary;
+}
+
+.landing-tab:hover:not(.active)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  @apply bg-primary/30;
 }
